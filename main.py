@@ -1,7 +1,7 @@
 import spacy
 import json
 
-nlp = spacy.load('second')
+nlp = spacy.load('third')
 
 # test_text = input("Enter your testing text: ")
 # doc = nlp(test_text)
@@ -11,7 +11,7 @@ nlp = spacy.load('second')
 
 raw_data = []
 raw_data_count = 0
-with open('data-dev.txt', encoding='utf-8') as f:
+with open('data-test.txt', encoding='utf-8') as f:
     for line in f:
         if raw_data_count == 1000:
             break

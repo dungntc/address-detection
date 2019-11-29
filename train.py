@@ -6,11 +6,11 @@ raw_data = []
 raw_data_count = 0
 with open('data-dev.txt', encoding='utf-8') as f:
     for line in f:
-        if raw_data_count == 100:
+        if raw_data_count == 20000:
             break
-        raw_data.append(json.loads(line))
         raw_data_count = raw_data_count + 1
-print(raw_data_count)
+        print(raw_data_count)
+        raw_data.append(json.loads(line))
 
 TRAIN_DATA = []
 TRAIN_DATA_count = 0
@@ -20,8 +20,7 @@ for rd in raw_data:
         TRAIN_DATA_count = TRAIN_DATA_count + 1
         TRAIN_DATA.append((str(rd['address']).strip().lower(),
                            {'entities': [(find, find + len(str(rd['street']).strip()), 'Street')]}))
-    else:
-        print(rd['address'], rd['street'])
+
 print(TRAIN_DATA_count)
 
 
@@ -42,7 +41,7 @@ def train_spacy(data, iterations):
     # get names of other pipes to disable them during training
     other_pipes = [pipe for pipe in nlp.pipe_names if pipe != 'ner']
     with nlp.disable_pipes(*other_pipes):  # only train NER
-        optimizer = nlp.begin_training()
+        optimizer = nlp.begin_training(device=0)
         for itn in range(iterations):
             print("Statring iteration " + str(itn))
             random.shuffle(TRAIN_DATA)
@@ -58,7 +57,7 @@ def train_spacy(data, iterations):
     return nlp
 
 
-prdnlp = train_spacy(TRAIN_DATA, 3)
+prdnlp = train_spacy(TRAIN_DATA, 6)
 
-modelfile = 'second'
+modelfile = 'third'
 prdnlp.to_disk(modelfile)
