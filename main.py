@@ -21,13 +21,14 @@ with open('data-dev.txt', encoding='utf-8') as f:
 find_data_count = 0
 right_data_count = 0
 for data in raw_data:
+    find = str(data['address']).strip().lower().find(str(data['street']).strip().lower())
+    if find == -1:
+        continue
     doc = nlp(str(data['address']).strip().lower())
     if len(doc.ents) > 0 is not None:
         find_data_count = find_data_count + 1
         if doc.ents[0].text == str(data['street']).strip().lower():
             right_data_count = right_data_count + 1
-            print('true: ' + doc.ents[0].text + '-----------res: ' + str(
-                data['street']).strip().lower() + '-------------add: ' + str(data['address']))
         else:
             print('false: ' + doc.ents[0].text + '-----------res: ' + str(
                 data['street']).strip().lower() + '-------------add: ' + str(data['address']))

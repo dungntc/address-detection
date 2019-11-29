@@ -52,8 +52,8 @@ for rd in raw_data:
         TRAIN_DATA_count = TRAIN_DATA_count + 1
         TRAIN_DATA.append((str(rd['address']).strip().lower(),
                    {'entities': [(find, find + len(str(rd['street']).strip()), 'Street')]}))
-    # else:
-        # print(rd['address'], rd['street'])
+    else:
+        print(rd['address'], rd['street'])
 print(TRAIN_DATA_count)
 
 
