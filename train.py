@@ -57,7 +57,7 @@ def train_spacy(data, iterations):
     return nlp
 
 
-prdnlp = train_spacy(TRAIN_DATA, 6)
+prdnlp = train_spacy(TRAIN_DATA, 20)
 
 modelfile = 'third'
 prdnlp.to_disk(modelfile)
