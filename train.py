@@ -11,6 +11,7 @@ with open('data-dev.txt', encoding='utf-8') as f:
         raw_data_count = raw_data_count + 1
         print(raw_data_count)
         raw_data.append(json.loads(line))
+print("Raw data : " + str(raw_data_count))
 
 TRAIN_DATA = []
 TRAIN_DATA_count = 0
@@ -20,8 +21,7 @@ for rd in raw_data:
         TRAIN_DATA_count = TRAIN_DATA_count + 1
         TRAIN_DATA.append((str(rd['address']).strip().lower(),
                            {'entities': [(find, find + len(str(rd['street']).strip()), 'Street')]}))
-
-print(TRAIN_DATA_count)
+print("Train data : " + str(TRAIN_DATA_count))
 
 
 def train_spacy(data, iterations):
@@ -59,5 +59,5 @@ def train_spacy(data, iterations):
 
 prdnlp = train_spacy(TRAIN_DATA, 20)
 
-modelfile = 'third'
+modelfile = 'auto_split_street_address_model2'
 prdnlp.to_disk(modelfile)
