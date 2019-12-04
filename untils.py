@@ -20,8 +20,22 @@ spliter = AutoSplitStreetAddress(os.getcwd()+'/auto_split_street_address_model')
 print('-----------------------------')
 print('\n')
 print('Ví dụ : ')
+
 print('Địa chỉ chi tiết : Shop 07A/GF, TT thương mại Big C Huế, 174 Bà Triệu, Phú Hội, TP Huế')
 print('Đường/phố : '+spliter.run('Shop 07A/GF, TT thương mại Big C Huế, 174 Bà Triệu, Phú Hội, TP Huế'))
+
+print('Địa chỉ chi tiết : Số nhà 280, Đường Trần Hưng Đạo, Phường Quyết Thắng, Thành phố Kon Tum, Tỉnh Kon Tum,Việt Nam')
+print('Đường/phố : '+spliter.run('Số nhà 280, Đường Trần Hưng Đạo, Phường Quyết Thắng, Thành phố Kon Tum, Tỉnh Kon Tum,Việt Nam'))
+
+print('Địa chỉ chi tiết : Số 62, tổ 10, Khu phố 2, Thị trấn Chơn Thành, Huyện Chơn Thành, Tỉnh Bình Phước, Việt Nam')
+print('Đường/phố : '+spliter.run('Số 62, tổ 10, Khu phố 2, Thị trấn Chơn Thành, Huyện Chơn Thành, Tỉnh Bình Phước, Việt Nam'))
+
+print('Địa chỉ chi tiết : Số 01-03, đường Điện Biên , Phường Yên Ninh, Thành phố  Yên Bái, Tỉnh Yên Bái, Việt Nam')
+print('Đường/phố : '+spliter.run('Số 01-03, đường Điện Biên , Phường Yên Ninh, Thành phố  Yên Bái, Tỉnh Yên Bái, Việt Nam'))
+
+print('Địa chỉ chi tiết : Vincom Đà Nẵng, Tầng 4, Ngô Quyền')
+print('Đường/phố : '+spliter.run('Vincom Đà Nẵng, Tầng 4, Ngô Quyền'))
+
 print('\n')
 print('-----------------------------')
 print('\n')
