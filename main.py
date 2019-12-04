@@ -1,7 +1,7 @@
 import spacy
 import json
 
-nlp = spacy.load('third')
+nlp = spacy.load('first')
 
 # test_text = input("Enter your testing text: ")
 # doc = nlp(test_text)
@@ -24,7 +24,7 @@ for data in raw_data:
     address = str(data['address']).strip()
     street = str(data['street']).strip()
     doc = nlp(address.lower())
-    if len(doc.ents) > 0 is not None:
+    if len(doc.ents) > 0:
         data['new_street'] = address[doc.ents[0].start_char: doc.ents[0].end_char]
         find_data_count = find_data_count + 1
         if doc.ents[0].text == street.lower():
