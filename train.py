@@ -6,7 +6,7 @@ raw_data = []
 raw_data_count = 0
 with open('data-dev.txt', encoding='utf-8') as f:
     for line in f:
-        if raw_data_count == 20000:
+        if raw_data_count == 20:
             break
         raw_data_count = raw_data_count + 1
         print(raw_data_count)
@@ -57,7 +57,7 @@ def train_spacy(data, iterations):
     return nlp
 
 
-prdnlp = train_spacy(TRAIN_DATA, 20)
+prdnlp = train_spacy(TRAIN_DATA, 2)
 
 modelfile = 'auto_split_street_address_model2'
 prdnlp.to_disk(modelfile)

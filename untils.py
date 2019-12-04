@@ -17,4 +17,17 @@ class AutoSplitStreetAddress:
 
 # sample
 spliter = AutoSplitStreetAddress(os.getcwd()+'/auto_split_street_address_model')
-print(spliter.run('Shop 07A/GF, TT thương mại Big C Huế, 174 Bà Triệu, Phú Hội, TP Huế'))
+print('-----------------------------')
+print('\n')
+print('Ví dụ : ')
+print('Địa chỉ chi tiết : Shop 07A/GF, TT thương mại Big C Huế, 174 Bà Triệu, Phú Hội, TP Huế')
+print('Đường/phố : '+spliter.run('Shop 07A/GF, TT thương mại Big C Huế, 174 Bà Triệu, Phú Hội, TP Huế'))
+print('\n')
+print('-----------------------------')
+print('\n')
+print('Thử với ví dụ khác : ')
+while True:
+    sample_address = input('Địa chỉ chi tiết : ')
+    if sample_address=='end':
+        break
+    print('Đường phố : '+spliter.run(sample_address)+'\n')
